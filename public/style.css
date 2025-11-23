@@ -1,0 +1,98 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #121212;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+  background: #222;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+#search {
+  width: 80%;
+  max-width: 500px;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.card {
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  background: #333;
+}
+
+.info {
+  padding: 12px;
+}
+
+.btn {
+  display: block;
+  background: #007bff;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  transition: background .2s;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+.pagination {
+  text-align: center;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.page-btn {
+  padding: 10px 15px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.page-btn:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.page-btn:hover:not(:disabled) {
+  background: #0056b3;
+}

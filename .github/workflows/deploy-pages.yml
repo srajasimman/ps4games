@@ -1,0 +1,52 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      # # Optional: Run cover-fetcher BEFORE deploy so Pages stays synced
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v6
+      #   with:
+      #       node-version: 20
+
+      # - name: Install dependencies
+      #   working-directory: ./src
+      #   run: npm install
+
+      # - name: Run cover fetch script
+      #   working-directory: ./src
+      #   run: node fetch_covers.js
+
+      - name: Upload site content
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+  publish:
+    needs: deploy
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
